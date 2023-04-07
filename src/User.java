@@ -17,6 +17,7 @@ class User implements Role {
                     System.out.println(role);
                     break;
                 default:
+                    System.out.println("default");
                     break;
             }
         }
