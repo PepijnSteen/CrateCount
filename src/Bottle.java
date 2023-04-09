@@ -19,8 +19,8 @@ class Soda implements Bottle {
 
     ArrayList<BottleInfo> drink = new ArrayList<>(Arrays.asList(cocaCola, cocaColaZero, sprite, spaRood, iceTeaGreen));
 
-    public void addItem(String name, double price, String info) {
-
+    public void addItem(String name, double price) {
+        drink.add(new BottleInfo(name, price));
     }
 }
 
@@ -28,18 +28,17 @@ class Beer implements Bottle {
     public ArrayList<BottleInfo> getDrink() {
         return new ArrayList<>();
     }
-    public void addItem(String name, double price, String info) {
-
+    public void addItem(String name, double price) {
     }
 }
 
 class AlcholicBeer extends Beer {
 
-    BottleInfo laChouffe = new BottleInfo("La Chouffe", 5.6, "A heavy blonde Belgian beer");
-    BottleInfo funkyFalcon = new BottleInfo("Funky Falcon", 5.5, "A citrus, lemongrass and floral flavoured pale ale");
-    BottleInfo deliriumTremens = new BottleInfo("Delirium Tremens", 6.5, "A slightly malty pale blond beer");
-    BottleInfo westmalleTripel = new BottleInfo("Westmalle Tripel", 6.3, "A tripel beer with a mild bitter taste, supported by fruity aromas");
-    BottleInfo westmalleDubbel = new BottleInfo("Westmalle Dubbel", 6.0, "A dark red-brown dubbel beer with touches of caramel, malt and fruity esters reminiscent of ripe banana");
+    BottleInfo laChouffe = new BottleInfo("La Chouffe", 5.6);
+    BottleInfo funkyFalcon = new BottleInfo("Funky Falcon", 5.5);
+    BottleInfo deliriumTremens = new BottleInfo("Delirium Tremens", 6.5);
+    BottleInfo westmalleTripel = new BottleInfo("Westmalle Tripel", 6.3);
+    BottleInfo westmalleDubbel = new BottleInfo("Westmalle Dubbel", 6.0);
 
     ArrayList<BottleInfo> drink = new ArrayList<>(Arrays.asList(laChouffe, funkyFalcon, deliriumTremens, westmalleTripel, westmalleDubbel));
 
@@ -49,18 +48,18 @@ class AlcholicBeer extends Beer {
     }
 
     @Override
-    public void addItem(String name, double price, String info) {
-
+    public void addItem(String name, double price) {
+        drink.add(new BottleInfo(name, price));
     }
 }
 
 class NonAlcoholicBeer extends Beer {
 
-    BottleInfo vrijWit = new BottleInfo("'t IJ Vrijwit", 5.6, "Brewed with lemon and coriander seed for a spicy, fresh taste.");
-    BottleInfo heinekenNul = new BottleInfo("Heineken 0.0", 3.5, "Heineken 0.0% has a perfectly balanced taste with refreshing fruity notes and soft malty body");
-    BottleInfo brandWeizenNul = new BottleInfo("Brand Weizen 0.0", 6.5, "A delicious 0.0% wheat beer with an extra fresh, fruity taste and a soft aftertaste");
-    BottleInfo affligemBlondNul = new BottleInfo("Affligem Blond 0.0", 6.3, "An alcohol-free Belgian blond abbey beer with a rich taste, a soft fruitiness and a mildly bitter aftertaste");
-    BottleInfo liefmansNul = new BottleInfo("Liefmans 0.0", 6.0, "A cherry beer with a fruity bouquet of kriek, raspberry, blueberry, elderberry and strawberry.");
+    BottleInfo vrijWit = new BottleInfo("'t IJ Vrijwit", 5.6);
+    BottleInfo heinekenNul = new BottleInfo("Heineken 0.0", 3.5);
+    BottleInfo brandWeizenNul = new BottleInfo("Brand Weizen 0.0", 6.5);
+    BottleInfo affligemBlondNul = new BottleInfo("Affligem Blond 0.0", 6.3);
+    BottleInfo liefmansNul = new BottleInfo("Liefmans 0.0", 6.0);
 
     ArrayList<BottleInfo> drink = new ArrayList<>(Arrays.asList(vrijWit, heinekenNul, brandWeizenNul, affligemBlondNul, liefmansNul));
 
@@ -70,7 +69,7 @@ class NonAlcoholicBeer extends Beer {
     }
 
     @Override
-    public void addItem(String name, double price, String info) {
-
+    public void addItem(String name, double price) {
+        drink.add(new BottleInfo(name, price));
     }
 }

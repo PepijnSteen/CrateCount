@@ -15,9 +15,9 @@ public class Menu {
 
     public void OptionsMenu() {
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+        IntroductionText();
         while (true) {
-            IntroductionText();
+            int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     //Tellen functie
