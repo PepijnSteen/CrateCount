@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+
 interface Bottle {
     ArrayList<BottleInfo> getDrink();
 }
@@ -17,11 +18,18 @@ class Soda implements Bottle {
     BottleInfo iceTeaGreen = new BottleInfo("Ice Tea Green", 3.2);
 
     ArrayList<BottleInfo> drink = new ArrayList<>(Arrays.asList(cocaCola, cocaColaZero, sprite, spaRood, iceTeaGreen));
+
+    public void addItem(String name, double price, String info) {
+
+    }
 }
 
 class Beer implements Bottle {
     public ArrayList<BottleInfo> getDrink() {
         return new ArrayList<>();
+    }
+    public void addItem(String name, double price, String info) {
+
     }
 }
 
@@ -39,6 +47,11 @@ class AlcholicBeer extends Beer {
     public ArrayList<BottleInfo> getDrink() {
         return drink;
     }
+
+    @Override
+    public void addItem(String name, double price, String info) {
+
+    }
 }
 
 class NonAlcoholicBeer extends Beer {
@@ -54,5 +67,10 @@ class NonAlcoholicBeer extends Beer {
     @Override
     public ArrayList<BottleInfo> getDrink() {
         return drink;
+    }
+
+    @Override
+    public void addItem(String name, double price, String info) {
+
     }
 }
