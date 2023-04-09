@@ -1,41 +1,74 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Addition {
+interface Role {
+    void checkRole();
+}
+
+class Addition implements Role {
     private String name;
     private double price;
-    public void addNewCrates(ArrayList<BottleInfo> drink) {
-        Scanner scanner = new Scanner(System.in);
+    private boolean manager = false;
 
+    public void checkRole(){
+        User user = new User();
+        if (user.isManager()) {
+            manager = true;
+        }
+    }
+
+    public void addNewCrates(ArrayList<BottleInfo> drink, Scanner scanner) {
+        //checkRole();
+        User user = new User();
         Soda soda = new Soda();
         AlcholicBeer beer = new AlcholicBeer();
         NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
 
-        System.out.println("What new drink are you adding?");
-        name = scanner.nextLine();
+        if (user.isManager()) {
+            System.out.println("You are unauthorized to use this feature!");
+        }
 
-        System.out.println("What's the price of the " + name + "?");
-        price = scanner.nextDouble();
-
-        scanner.nextLine();
-
-        System.out.println("Is " + name + " a:" +
-                           "1. Soda \n 2. Beer \n 3. Non-Alcoholic Beer \n Please enter either 1, 2 or 3");
-
-        switch (scanner.nextInt()) {
-            case 1:
-                soda.addItem(name, price);
-            case 2:
-                beer.addItem(name, price);
-            case 3:
-                nonAlcoholicBeer.addItem(name, price);
+        while (true) {
+            boolean breakloop = false;
+            int choice;
+            switch (scanner.nextInt()) {
+                case 1:
+                    soda.addItem(name, price);
+                    System.out.println(soda.getDrink());
+                    breakloop = true;
+                    break;
+                case 2:
+                    beer.addItem(name, price);
+                    System.out.println(beer.getDrink());
+                    breakloop = true;
+                    break;
+                case 3:
+                    nonAlcoholicBeer.addItem(name, price);
+                    System.out.println(nonAlcoholicBeer.getDrink());
+                    breakloop = true;
+                    break;
+            }
+            if (breakloop) { break; }
         }
     }
 }
 
-class Removal {
+class Removal  implements Role{
     private String name;
+    boolean manager = false;
+
+    public void checkRole(){
+        User user = new User();
+        if (user.isManager()) {
+            manager = true;
+        }
+    }
     public void removeItem(ArrayList<BottleInfo> drink) {
+        checkRole();
+        if (!manager) {
+            System.out.println("You are unauthorized to use this feature!");
+        }
+
         Scanner scanner = new Scanner(System.in);
 
         Soda soda = new Soda();
@@ -78,9 +111,22 @@ class Removal {
     }
 }
 
-class Edit {
+class Edit  implements Role{
     private String name;
-    public void removeItem(ArrayList<BottleInfo> drink) {
+    boolean manager = false;
+
+    public void checkRole(){
+        User user = new User();
+        if (user.isManager()) {
+            manager = true;
+        }
+    }
+    public void editItem(ArrayList<BottleInfo> drink) {
+        checkRole();
+        if (!manager) {
+            System.out.println("You are unauthorized to use this feature!");
+        }
+
         Scanner scanner = new Scanner(System.in);
 
         Soda soda = new Soda();
@@ -138,38 +184,27 @@ class Edit {
     }
 }
 
-class Count {
+class Count  implements Role{
+    boolean manager = false;
 
-}
-
-class CrateChoice {
-    public void Choice(String action) {
-        Scanner scanner = new Scanner(System.in);
-        Soda soda = new Soda();
-        AlcholicBeer beer = new AlcholicBeer();
-        NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
-
-
-        System.out.println("What type of crate would you like to " + action + "?\n" +
-                           "1. Soda \n " +
-                           "2. Beer \n " +
-                           "3. Non-Alcoholic \n " +
-                           "Please enter one of the 3 numbers");
-        switch (scanner.nextInt()) {
-            case 1:
-                soda.getDrink();
-            case 2:
-                beer.getDrink();
-            case 3:
-                nonAlcoholicBeer.getDrink();
-            default:
-                // ??
+    public void checkRole(){
+        User user = new User();
+        if (user.isManager()) {
+            manager = true;
         }
     }
 }
 
 public class Main {
     public static void main(String[] args) {
+        Menu menu = new Menu();
+        User user = new User();
+        Soda soda = new Soda();
+        AlcholicBeer beer = new AlcholicBeer();
+        NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
+
+        user.roleCall();
+        menu.optionsMenu();
 
     }
 }

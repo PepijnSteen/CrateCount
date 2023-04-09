@@ -1,28 +1,31 @@
 import java.util.Scanner;
 
-interface Role {
-}
+class User {
+    protected boolean manager = false;
 
-class User implements Role {
-    private String role;
+    Scanner scanner = new Scanner(System.in);
 
-    public void setRole(String role) {
-        this.role = role;
+    public boolean isManager() {
+        return manager;
     }
 
-    public String Role() {
-        while (true) {
-            switch (role) {
-                case "manager", "staff":
-                    System.out.println(role);
-                    break;
-                default:
-                    System.out.println("default");
-                    break;
-            }
+    public void setManager(boolean manager) {
+        this.manager = manager;
+    }
+
+    public void roleCall() {
+        Staff staff = new Staff();
+        Manager manager = new Manager();
+
+        System.out.println("What is your role? \nEnter either 'manager' or 'staff'");
+        String roleCall = scanner.nextLine();
+        if (roleCall.toLowerCase().equals("manager")) {
+            manager.loginPin();
+        }
+        else {
+            staff.roleStaff();
         }
     }
-
 }
 
 class Manager extends User {
@@ -34,23 +37,24 @@ class Manager extends User {
         while (true){
             System.out.println( "Please enter your pin");
             if (scanner.nextInt() == 9999) {
-                System.out.println("Pin accepted");
-                setRole("manager");
+                System.out.println("Pin accepted! \nYour role is set as 'Manager'");
+                manager = true;
                 break;
             }
             else {
-                System.out.println("Incorrect pin, you still have " + (3 - counter) + " tries left.");
+                System.out.println("Incorrect pin, you have " + (3 - counter) + " tries left.");
                 counter++;
-                if (counter >= 3 ) {
-                    setRole("staff");
+                if (counter >= 4 ) {
+                    System.out.println("Your role is set as 'Staff' \n");
                     break;
                 }
             }
         }
     }
-
 }
 
 class Staff extends User {
-
+    public void roleStaff() {
+        setManager(false);
+    }
 }
