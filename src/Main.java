@@ -14,7 +14,7 @@ class Addition implements Role {
     AlcholicBeer beer = new AlcholicBeer();
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
 
-    public void addNewCrates(Scanner scanner) {
+    public void addItem(Scanner scanner) {
         System.out.println("What new drink are you adding?");
         scanner.nextLine();
         String name = scanner.nextLine();
@@ -414,11 +414,119 @@ class Edit  implements Role{
 class Count  implements Role{
     boolean manager = false;
 
+    Menu menu = new Menu();
+    Scanner scanner = new Scanner(System.in);
+    Soda soda = new Soda();
+    AlcholicBeer beer = new AlcholicBeer();
+    NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
+
     public void checkRole(){
         User user = new User();
         if (user.isManager()) {
             manager = true;
         }
+    }
+
+    public void countItem() {
+        System.out.println("Is the crate you want to count a:\n" +
+                "1. Soda \n2. Beer \n3. Non-Alcoholic Beer \nPlease enter either 1, 2 or 3");
+        switch (scanner.nextInt()) {
+            case 1:
+                countSoda();
+                menu.useOtherFunction();
+            case 2:
+                countBeer();
+                menu.useOtherFunction();
+            case 3:
+                countNonAlcoholicBeer();
+                menu.useOtherFunction();
+        }
+    }
+
+    public void countSoda() {
+
+        int amount;
+        System.out.println("These are the sodas you can count");
+        soda.printArray();
+
+        System.out.println("What soda would you like to count?");
+        scanner.nextLine();
+        String countItem = scanner.nextLine();
+
+        for (int i = 0; i < soda.drink.size(); i++) {
+            BottleInfo bottle = soda.drink.get(i);
+            if (bottle.getName().toLowerCase().equals(countItem.toLowerCase())) {
+                System.out.println("How many crates do you have?");
+                amount = scanner.nextInt();
+                if (amount > bottle.getAmount()) {
+                    System.out.println("You already have more crates than your maximum!");
+                }
+                else if (amount == bottle.getAmount()) {
+                System.out.println("You already have your maximum amount of crates!");
+                }
+                else if (amount < bottle.getAmount()){
+                System.out.println("You need to order " + (bottle.getAmount() - amount) + " crates!");
+                }
+            }
+        }
+    }
+
+    public void countBeer() {
+
+        int amount;
+        System.out.println("These are the beers you can count");
+        beer.printArray();
+
+        System.out.println("What beer would you like to count?");
+        scanner.nextLine();
+        String countItem = scanner.nextLine();
+
+        for (int i = 0; i < beer.drink.size(); i++) {
+            BottleInfo bottle = beer.drink.get(i);
+            if (bottle.getName().toLowerCase().equals(countItem.toLowerCase())) {
+                System.out.println("How many crates do you have?");
+                amount = scanner.nextInt();
+                if (amount > bottle.getAmount()) {
+                    System.out.println("You already have more crates than your maximum!");
+                }
+                else if (amount == bottle.getAmount()) {
+                    System.out.println("You already have your maximum amount of crates!");
+                }
+                else if (amount < bottle.getAmount()){
+                    System.out.println("You need to order " + (bottle.getAmount() - amount) + " crates!");
+                }
+            }
+        }
+
+    }
+
+    public void countNonAlcoholicBeer() {
+
+        int amount;
+        System.out.println("These are the non-alcoholic beers you can count");
+        nonAlcoholicBeer.printArray();
+
+        System.out.println("What non-alcoholic beers would you like to count?");
+        scanner.nextLine();
+        String countItem = scanner.nextLine();
+
+        for (int i = 0; i < nonAlcoholicBeer.drink.size(); i++) {
+            BottleInfo bottle = nonAlcoholicBeer.drink.get(i);
+            if (bottle.getName().toLowerCase().equals(countItem.toLowerCase())) {
+                System.out.println("How many crates do you have?");
+                amount = scanner.nextInt();
+                if (amount > bottle.getAmount()) {
+                    System.out.println("You already have more crates than your maximum!");
+                }
+                else if (amount == bottle.getAmount()) {
+                    System.out.println("You already have your maximum amount of crates!");
+                }
+                else if (amount < bottle.getAmount()){
+                    System.out.println("You need to order " + (bottle.getAmount() - amount) + " crates!");
+                }
+            }
+        }
+
     }
 }
 

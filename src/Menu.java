@@ -27,10 +27,10 @@ public class Menu {
             boolean breakloop = false;
             switch (choice) {
                 case 1:
-                    //count;
+                    count.countItem();
                     breakloop = true;
                 case 2:
-                    addition.addNewCrates(scanner);
+                    addition.addItem(scanner);
                     finalWords();
                     breakloop = true;
                     break;
