@@ -2,18 +2,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 interface Bottle {
-    ArrayList<BottleInfo> getDrink();
     void addItem(String name, double price, int amount);
     void printArray();
 }
 
 class Soda implements Bottle {
-
-    @Override
-    public ArrayList<BottleInfo> getDrink() {
-        return drink;
-    }
-
     BottleInfo cocaCola = new BottleInfo("Coca Cola", 3.5, 7);
     BottleInfo cocaColaZero = new BottleInfo("Coca Cola Zero", 3.5, 5);
     BottleInfo sprite = new BottleInfo("Sprite", 3, 5);
@@ -36,9 +29,6 @@ class Soda implements Bottle {
 }
 
 class Beer implements Bottle {
-    public ArrayList<BottleInfo> getDrink() {
-        return new ArrayList<>();
-    }
     public void addItem(String name, double price, int amount) {
     }
     public void printArray() {
@@ -54,11 +44,6 @@ class AlcholicBeer extends Beer {
     BottleInfo westmalleDubbel = new BottleInfo("Westmalle Dubbel", 6.0,4);
 
     ArrayList<BottleInfo> drink = new ArrayList<>(Arrays.asList(laChouffe, funkyFalcon, deliriumTremens, westmalleTripel, westmalleDubbel));
-
-    @Override
-    public ArrayList<BottleInfo> getDrink() {
-        return drink;
-    }
 
     @Override
     public void addItem(String name, double price, int amount) {
@@ -82,11 +67,6 @@ class NonAlcoholicBeer extends Beer {
     BottleInfo liefmansNul = new BottleInfo("Liefmans 0.0", 6.0, 1);
 
     ArrayList<BottleInfo> drink = new ArrayList<>(Arrays.asList(vrijWit, heinekenNul, brandWeizenNul, affligemBlondNul, liefmansNul));
-
-    @Override
-    public ArrayList<BottleInfo> getDrink() {
-        return drink;
-    }
 
     @Override
     public void addItem(String name, double price, int amount) {

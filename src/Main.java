@@ -1,21 +1,10 @@
-import jdk.dynalink.beans.MissingMemberHandlerFactory;
-
 import java.util.Scanner;
 
-interface Role {
-    void checkRole();
-}
-
-class Addition implements Role {
-    boolean authorisation;
-    User user = new User();
+class Addition{
     Menu menu = new Menu();
     Soda soda = new Soda();
     AlcholicBeer beer = new AlcholicBeer();
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
-
-    public void checkRole() {
-    }
 
     public void addItem(Scanner scanner) {
         System.out.println("What new drink are you adding?");
@@ -67,8 +56,7 @@ class Addition implements Role {
     }
 }
 
-class Removal  implements Role{
-    private boolean authorisation = false;
+class Removal{
     private int choice;
 
     public void setChoice(int choice) {
@@ -77,14 +65,11 @@ class Removal  implements Role{
 
 
     Menu menu = new Menu();
-    User user = new User();
     Scanner scanner = new Scanner(System.in);
     Soda soda = new Soda();
     AlcholicBeer beer = new AlcholicBeer();
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
 
-    public void checkRole() {
-    }
     public void removeItem() {
         System.out.println("Is the drink you want to remove a:" +
                 "1. Soda \n 2. Beer \n 3. Non-Alcoholic Beer \n Please enter either 1, 2 or 3");
@@ -161,18 +146,12 @@ class Removal  implements Role{
     }
 }
 
-class Edit  implements Role{
-    private boolean authorisation = false;
-
+class Edit{
     Menu menu = new Menu();
-    User user = new User();
     Scanner scanner = new Scanner(System.in);
     Soda soda = new Soda();
     AlcholicBeer beer = new AlcholicBeer();
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
-
-    public void checkRole(){
-    }
 
     public void editItem() {
         System.out.println("Is the drink you want to edit a:\n" +
@@ -409,18 +388,12 @@ class Edit  implements Role{
     }
 }
 
-class Count  implements Role{
-    private boolean authorisation = false;
-
-    User user = new User();
+class Count{
     Menu menu = new Menu();
     Scanner scanner = new Scanner(System.in);
     Soda soda = new Soda();
     AlcholicBeer beer = new AlcholicBeer();
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
-
-    public void checkRole(){
-    }
 
     public void countItem() {
         System.out.println("Is the crate you want to count a:\n" +
@@ -527,7 +500,6 @@ class Count  implements Role{
 
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
         User user = new User();
 
         user.roleCall();

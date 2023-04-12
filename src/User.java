@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 class User {
-    private boolean manager;
     Scanner scanner = new Scanner(System.in);
 
     public void roleCall() {
@@ -16,14 +15,6 @@ class User {
         else {
             staff.roleStaff();
         }
-    }
-
-    public void setManager(boolean manager) {
-        this.manager = manager;
-    }
-
-    public boolean isManager() {
-        return manager;
     }
 }
 

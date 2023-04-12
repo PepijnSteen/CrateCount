@@ -27,7 +27,6 @@ public class Menu {
         Addition addition = new Addition();
         Removal remove = new Removal();
         Edit edit = new Edit();
-        User user = new User();
 
         int choice = scanner.nextInt();
         while (true) {
@@ -78,7 +77,6 @@ public class Menu {
 
     public void useOtherFunction() {
         Scanner scanner = new Scanner(System.in);
-        User user = new User();
 
         System.out.println("Would you like to use another function? Y/N");
         String yesNo = scanner.nextLine();
