@@ -18,7 +18,7 @@ class Addition{
         int amount = scanner.nextInt();
 
         System.out.println("Is " + name + " a:\n" +
-                "1. Soda \n 2. Beer \n 3. Non-Alcoholic Beer \n Please enter either 1, 2 or 3");
+                "1. Soda \n2. Beer \n3. Non-Alcoholic Beer \nPlease enter either 1, 2 or 3");
         int pick = scanner.nextInt();
         switch (pick) {
             case 1:
@@ -72,7 +72,7 @@ class Removal{
 
     public void removeItem() {
         System.out.println("Is the drink you want to remove a:" +
-                "1. Soda \n 2. Beer \n 3. Non-Alcoholic Beer \n Please enter either 1, 2 or 3");
+                "\n1. Soda \n2. Beer \n3. Non-Alcoholic Beer \nPlease enter either 1, 2 or 3");
         setChoice(scanner.nextInt());
 
         switch (choice) {
@@ -430,10 +430,10 @@ class Count{
                     System.out.println("You already have more crates than your maximum!");
                 }
                 else if (amount == bottle.getAmount()) {
-                System.out.println("You already have your maximum amount of crates!");
+                    System.out.println("You already have your maximum amount of crates!");
                 }
                 else if (amount < bottle.getAmount()){
-                System.out.println("You need to order " + (bottle.getAmount() - amount) + " crates!");
+                    System.out.println("You need to order " + (bottle.getAmount() - amount) + " crates!");
                 }
             }
         }
@@ -503,6 +503,5 @@ public class Main {
         User user = new User();
 
         user.roleCall();
-
     }
 }
