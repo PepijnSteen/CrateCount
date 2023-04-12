@@ -1,17 +1,8 @@
 import java.util.Scanner;
 
 class User {
-    protected boolean manager = false;
-
+    private boolean manager;
     Scanner scanner = new Scanner(System.in);
-
-    public boolean isManager() {
-        return manager;
-    }
-
-    public void setManager(boolean manager) {
-        this.manager = manager;
-    }
 
     public void roleCall() {
         Staff staff = new Staff();
@@ -26,27 +17,36 @@ class User {
             staff.roleStaff();
         }
     }
+
+    public void setManager(boolean manager) {
+        this.manager = manager;
+    }
+
+    public boolean isManager() {
+        return manager;
+    }
 }
 
 class Manager extends User {
     private int counter = 0;
 
+    Staff staff = new Staff();
+    Menu menu = new Menu();
     Scanner scanner = new Scanner(System.in);
 
     public void loginPin() {
         while (true){
             System.out.println( "Please enter your pin");
             if (scanner.nextInt() == 9999) {
-                System.out.println("Pin accepted! \nYour role is set as 'Manager'");
-                manager = true;
-                break;
+                System.out.println("Pin accepted! \nYour role is set as manager");
+                menu.setAuthorisation(true);
+                menu.introductionText();
             }
             else {
                 System.out.println("Incorrect pin, you have " + (3 - counter) + " tries left.");
                 counter++;
                 if (counter >= 4 ) {
-                    System.out.println("Your role is set as 'Staff' \n");
-                    break;
+                    staff.roleStaff();
                 }
             }
         }
@@ -54,7 +54,10 @@ class Manager extends User {
 }
 
 class Staff extends User {
+    Menu menu = new Menu();
     public void roleStaff() {
-        setManager(false);
+        System.out.println("Your role has been set as staff");
+        menu.setAuthorisation(false);
+        menu.introductionText();
     }
 }

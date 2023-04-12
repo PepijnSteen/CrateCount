@@ -1,3 +1,5 @@
+import jdk.dynalink.beans.MissingMemberHandlerFactory;
+
 import java.util.Scanner;
 
 interface Role {
@@ -5,14 +7,15 @@ interface Role {
 }
 
 class Addition implements Role {
-    public void checkRole() {
-        //
-    }
-
+    boolean authorisation;
     User user = new User();
+    Menu menu = new Menu();
     Soda soda = new Soda();
     AlcholicBeer beer = new AlcholicBeer();
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
+
+    public void checkRole() {
+    }
 
     public void addItem(Scanner scanner) {
         System.out.println("What new drink are you adding?");
@@ -31,12 +34,15 @@ class Addition implements Role {
         switch (pick) {
             case 1:
                 addSoda(name, price, amount);
+                menu.useOtherFunction();
                 break;
             case 2:
                 addBeer(name, price, amount);
+                menu.useOtherFunction();
                 break;
             case 3:
                 addNonAlcoholicBeer(name, price, amount);
+                menu.useOtherFunction();
                 break;
 
         }
@@ -62,26 +68,22 @@ class Addition implements Role {
 }
 
 class Removal  implements Role{
+    private boolean authorisation = false;
     private int choice;
 
     public void setChoice(int choice) {
         this.choice = choice;
     }
 
-    boolean manager = false;
-
 
     Menu menu = new Menu();
+    User user = new User();
     Scanner scanner = new Scanner(System.in);
     Soda soda = new Soda();
     AlcholicBeer beer = new AlcholicBeer();
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
 
-    public void checkRole(){
-        User user = new User();
-        if (user.isManager()) {
-            manager = true;
-        }
+    public void checkRole() {
     }
     public void removeItem() {
         System.out.println("Is the drink you want to remove a:" +
@@ -160,20 +162,16 @@ class Removal  implements Role{
 }
 
 class Edit  implements Role{
-    boolean manager = false;
-
+    private boolean authorisation = false;
 
     Menu menu = new Menu();
+    User user = new User();
     Scanner scanner = new Scanner(System.in);
     Soda soda = new Soda();
     AlcholicBeer beer = new AlcholicBeer();
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
 
     public void checkRole(){
-        User user = new User();
-        if (user.isManager()) {
-            manager = true;
-        }
     }
 
     public void editItem() {
@@ -412,8 +410,9 @@ class Edit  implements Role{
 }
 
 class Count  implements Role{
-    boolean manager = false;
+    private boolean authorisation = false;
 
+    User user = new User();
     Menu menu = new Menu();
     Scanner scanner = new Scanner(System.in);
     Soda soda = new Soda();
@@ -421,10 +420,6 @@ class Count  implements Role{
     NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
 
     public void checkRole(){
-        User user = new User();
-        if (user.isManager()) {
-            manager = true;
-        }
     }
 
     public void countItem() {
@@ -536,7 +531,6 @@ public class Main {
         User user = new User();
 
         user.roleCall();
-        menu.introductionText();
 
     }
 }

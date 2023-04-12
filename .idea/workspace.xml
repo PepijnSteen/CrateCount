@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfadb20a-58ff-43b7-8acc-aecfa372723b" name="Changes" comment="added all code so far 12/4">
+    <list default="true" id="dfadb20a-58ff-43b7-8acc-aecfa372723b" name="Changes" comment="added the Count class and all methods in it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <workItem from="1680873936896" duration="9108000" />
       <workItem from="1681051787901" duration="13715000" />
       <workItem from="1681226144618" duration="1124000" />
-      <workItem from="1681247490111" duration="10796000" />
+      <workItem from="1681247490111" duration="13737000" />
     </task>
     <task id="LOCAL-00001" summary="added Gebruiker class">
       <created>1680874037850</created>
@@ -131,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681293350821</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added the Count class and all methods in it">
+      <created>1681294726518</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681294726518</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +203,7 @@
     <MESSAGE value="added addition, removal and edit classes" />
     <MESSAGE value="added all code so far. 9/4" />
     <MESSAGE value="added all code so far 12/4" />
-    <option name="LAST_COMMIT_MESSAGE" value="added all code so far 12/4" />
+    <MESSAGE value="added the Count class and all methods in it" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the Count class and all methods in it" />
   </component>
 </project>

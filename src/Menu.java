@@ -1,11 +1,17 @@
 import java.util.Scanner;
 
 public class Menu {
+    private boolean authorisation;
+
+    public void setAuthorisation(boolean authorisation) {
+        this.authorisation = authorisation;
+    }
 
     public void introductionText() {
         System.out.println("||============================================||");
         System.out.println("||           Welcome to CrateCount!           ||");
         System.out.println("|| Please select one of the following options ||");
+        System.out.println("||      By entering either 1, 2, 3 or 4!      ||");
         System.out.println("||============================================||");
         System.out.println("||             1. Count the crates            ||");
         System.out.println("||          2. Add new crates (Manager)       ||");
@@ -21,6 +27,7 @@ public class Menu {
         Addition addition = new Addition();
         Removal remove = new Removal();
         Edit edit = new Edit();
+        User user = new User();
 
         int choice = scanner.nextInt();
         while (true) {
@@ -30,18 +37,36 @@ public class Menu {
                     count.countItem();
                     breakloop = true;
                 case 2:
-                    addition.addItem(scanner);
-                    finalWords();
-                    breakloop = true;
-                    break;
+                    if (authorisation) {
+                        addition.addItem(scanner);
+                        finalWords();
+                        breakloop = true;
+                        break;
+                    }
+                    else {
+                        System.out.println("You are not authorised to use this feature!");
+                        System.exit(0);
+                    }
                 case 3:
-                    remove.removeItem();
-                    finalWords();
-                    breakloop = true;
+                    if (authorisation) {
+                        remove.removeItem();
+                        finalWords();
+                        breakloop = true;
+                    }
+                    else {
+                        System.out.println("You are not authorised to use this feature!");
+                        System.exit(0);
+                    }
                 case 4:
-                    edit.editItem();
-                    finalWords();
-                    breakloop = true;
+                    if (authorisation) {
+                        edit.editItem();
+                        finalWords();
+                        breakloop = true;
+                    }
+                    else {
+                        System.out.println("You are not authorised to use this feature!");
+                        System.exit(0);
+                    }
                 default:
                     System.out.println("Please enter a number between 1 and 4!");
             if (breakloop) {
@@ -53,6 +78,8 @@ public class Menu {
 
     public void useOtherFunction() {
         Scanner scanner = new Scanner(System.in);
+        User user = new User();
+
         System.out.println("Would you like to use another function? Y/N");
         String yesNo = scanner.nextLine();
         if (yesNo.toLowerCase().equals("y")) {
