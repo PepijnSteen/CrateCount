@@ -188,7 +188,7 @@ class Edit{
             case 1:
                 for (int i = 0; i < soda.drink.size(); i++) {
                     BottleInfo bottle = soda.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new name:");
                         scanner.nextLine();
                         String newName = scanner.nextLine();
@@ -200,7 +200,7 @@ class Edit{
             case 2:
                 for (int i = 0; i < soda.drink.size(); i++) {
                     BottleInfo bottle = soda.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new price:");
                         double newPrice = scanner.nextDouble();
                         bottle.setPrice(newPrice);
@@ -211,7 +211,7 @@ class Edit{
             case 3:
                 for (int i = 0; i < soda.drink.size(); i++) {
                     BottleInfo bottle = soda.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new maximum amount:");
                         int newAmount = scanner.nextInt();
                         bottle.setAmount(newAmount);
@@ -222,7 +222,7 @@ class Edit{
             case 4:
                 for (int i = 0; i < soda.drink.size(); i++) {
                     BottleInfo bottle = soda.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the (new) name:");
                         scanner.nextLine();
                         String newName = scanner.nextLine();
@@ -262,7 +262,7 @@ class Edit{
             case 1:
                 for (int i = 0; i < beer.drink.size(); i++) {
                     BottleInfo bottle = beer.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new name:");
                         scanner.nextLine();
                         String newName = scanner.nextLine();
@@ -274,7 +274,7 @@ class Edit{
             case 2:
                 for (int i = 0; i < beer.drink.size(); i++) {
                     BottleInfo bottle = beer.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new price:");
                         double newPrice = scanner.nextDouble();
                         bottle.setPrice(newPrice);
@@ -285,7 +285,7 @@ class Edit{
             case 3:
                 for (int i = 0; i < beer.drink.size(); i++) {
                     BottleInfo bottle = beer.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new maximum amount:");
                         int newAmount = scanner.nextInt();
                         bottle.setAmount(newAmount);
@@ -296,7 +296,7 @@ class Edit{
             case 4:
                 for (int i = 0; i < beer.drink.size(); i++) {
                     BottleInfo bottle = beer.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the (new) name:");
                         scanner.nextLine();
                         String newName = scanner.nextLine();
@@ -336,7 +336,7 @@ class Edit{
             case 1:
                 for (int i = 0; i < nonAlcoholicBeer.drink.size(); i++) {
                     BottleInfo bottle = nonAlcoholicBeer.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new name:");
                         scanner.nextLine();
                         String newName = scanner.nextLine();
@@ -347,7 +347,7 @@ class Edit{
             case 2:
                 for (int i = 0; i < nonAlcoholicBeer.drink.size(); i++) {
                     BottleInfo bottle = nonAlcoholicBeer.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new price:");
                         double newPrice = scanner.nextDouble();
                         bottle.setPrice(newPrice);
@@ -357,7 +357,7 @@ class Edit{
             case 3:
                 for (int i = 0; i < nonAlcoholicBeer.drink.size(); i++) {
                     BottleInfo bottle = nonAlcoholicBeer.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new maximum amount:");
                         int newAmount = scanner.nextInt();
                         bottle.setAmount(newAmount);
@@ -367,7 +367,7 @@ class Edit{
             case 4:
                 for (int i = 0; i < nonAlcoholicBeer.drink.size(); i++) {
                     BottleInfo bottle = nonAlcoholicBeer.drink.get(i);
-                    if (bottle.getName().toLowerCase().equals(editItem.toLowerCase())) {
+                    if (bottle.getName().equalsIgnoreCase(editItem)) {
                         System.out.print("Please enter the new name:");
                         scanner.nextLine();
                         String newName = scanner.nextLine();
@@ -423,7 +423,7 @@ class Count{
 
         for (int i = 0; i < soda.drink.size(); i++) {
             BottleInfo bottle = soda.drink.get(i);
-            if (bottle.getName().toLowerCase().equals(countItem.toLowerCase())) {
+            if (bottle.getName().equalsIgnoreCase(countItem)) {
                 System.out.println("How many crates do you have?");
                 amount = scanner.nextInt();
                 if (amount > bottle.getAmount()) {
@@ -451,7 +451,7 @@ class Count{
 
         for (int i = 0; i < beer.drink.size(); i++) {
             BottleInfo bottle = beer.drink.get(i);
-            if (bottle.getName().toLowerCase().equals(countItem.toLowerCase())) {
+            if (bottle.getName().equalsIgnoreCase(countItem)) {
                 System.out.println("How many crates do you have?");
                 amount = scanner.nextInt();
                 if (amount > bottle.getAmount()) {
@@ -480,7 +480,7 @@ class Count{
 
         for (int i = 0; i < nonAlcoholicBeer.drink.size(); i++) {
             BottleInfo bottle = nonAlcoholicBeer.drink.get(i);
-            if (bottle.getName().toLowerCase().equals(countItem.toLowerCase())) {
+            if (bottle.getName().equalsIgnoreCase(countItem)) {
                 System.out.println("How many crates do you have?");
                 amount = scanner.nextInt();
                 if (amount > bottle.getAmount()) {
