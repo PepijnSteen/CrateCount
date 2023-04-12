@@ -1,8 +1,7 @@
-import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Menu {
+
     public void introductionText() {
         System.out.println("||============================================||");
         System.out.println("||           Welcome to CrateCount!           ||");
@@ -11,62 +10,66 @@ public class Menu {
         System.out.println("||             1. Count the crates            ||");
         System.out.println("||          2. Add new crates (Manager)       ||");
         System.out.println("||          3. Remove crates (Manager)        ||");
-        System.out.println("||        4. Change the amount of crates      ||");
+        System.out.println("||         4. Edit information (Manager)      ||");
         System.out.println("||============================================||");
+        choice();
     }
 
-    public void switchStatement(int pick, ArrayList<BottleInfo> drink) {
-
-
-    }
-    public void optionsMenu() {
-        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
-        Addition addition = new Addition();
+    public void choice() {
+        Scanner scanner = new Scanner(System.in);
         Count count = new Count();
+        Addition addition = new Addition();
         Removal remove = new Removal();
         Edit edit = new Edit();
 
-        introductionText();
+        int choice = scanner.nextInt();
         while (true) {
-            int choice = scanner.nextInt();
+            boolean breakloop = false;
             switch (choice) {
                 case 1:
-                    //count();
-                    break;
+                    //count;
+                    breakloop = true;
                 case 2:
-                    Soda soda = new Soda();
-                    AlcholicBeer beer = new AlcholicBeer();
-                    NonAlcoholicBeer nonAlcoholicBeer = new NonAlcoholicBeer();
-
-                    System.out.println("What new drink are you adding?");
-                    scanner.nextLine();
-                    String name = scanner.nextLine();
-
-                    System.out.println("What's the price of the " + name + "?");
-                    double price = scanner.nextDouble();
-
-                    System.out.println("Is " + name + " a:\n" +
-                            "1. Soda \n 2. Beer \n 3. Non-Alcoholic Beer \n Please enter either 1, 2 or 3");
-
-                    int pick = scanner.nextInt();
-                    switch (pick) {
-                        case 1:
-                            addition.addNewCrates(soda.getDrink(), scanner);
-                        case 2:
-                            addition.addNewCrates(beer.getDrink(), scanner);
-                        case 3:
-                            addition.addNewCrates(nonAlcoholicBeer.getDrink(), scanner);
-                    }
+                    addition.addNewCrates(scanner);
+                    finalWords();
+                    breakloop = true;
                     break;
                 case 3:
-                    // Remove functie
-                    break;
+                    remove.removeItem();
+                    finalWords();
+                    breakloop = true;
                 case 4:
-                    // Change functie
-                    break;
+                    edit.editItem();
+                    finalWords();
+                    breakloop = true;
                 default:
-                    System.out.println("Please input either: 1, 2, 3 or 4");
+                    System.out.println("Please enter a number between 1 and 4!");
+            if (breakloop) {
+                break;
+            }
             }
         }
+    }
+
+    public void useOtherFunction() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Would you like to use another function? Y/N");
+        String yesNo = scanner.nextLine();
+        if (yesNo.toLowerCase().equals("y")) {
+            introductionText();
+        }
+        else if (yesNo.toLowerCase().equals("n")) {
+            finalWords();
+        }
+        else {
+            System.out.println( "That is not a valid option!");
+            finalWords();
+        }
+    }
+
+    public void finalWords() {
+        System.out.println( "\nThanks for using CrateCount!\n" +
+                            "Your changes have been successful!");
+        System.exit(0);
     }
 }

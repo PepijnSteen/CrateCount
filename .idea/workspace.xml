@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfadb20a-58ff-43b7-8acc-aecfa372723b" name="Changes" comment="added addition, removal and edit classes">
+    <list default="true" id="dfadb20a-58ff-43b7-8acc-aecfa372723b" name="Changes" comment="added all code so far. 9/4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bottle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bottle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BottleInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottleInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,9 @@
       <option name="presentableId" value="Default" />
       <updated>1680873934957</updated>
       <workItem from="1680873936896" duration="9108000" />
-      <workItem from="1681051787901" duration="13677000" />
+      <workItem from="1681051787901" duration="13715000" />
+      <workItem from="1681226144618" duration="1124000" />
+      <workItem from="1681247490111" duration="9327000" />
     </task>
     <task id="LOCAL-00001" summary="added Gebruiker class">
       <created>1680874037850</created>
@@ -117,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681057177302</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added all code so far. 9/4">
+      <created>1681068089318</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681068089318</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +188,7 @@
     <MESSAGE value="added bottle.java class" />
     <MESSAGE value="started menu class" />
     <MESSAGE value="added addition, removal and edit classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added addition, removal and edit classes" />
+    <MESSAGE value="added all code so far. 9/4" />
+    <option name="LAST_COMMIT_MESSAGE" value="added all code so far. 9/4" />
   </component>
 </project>
