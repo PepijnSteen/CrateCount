@@ -1,39 +1,55 @@
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class BottleInfoTest {
 
     @Test
-    public void testGetName() {
-        BottleInfo bottle = new BottleInfo("Coca-Cola", 1.50, 24);
-        assertEquals("Coca-Cola", bottle.getName());
+    public void testConstructorAndGetters() {
+        //Arrange en Act
+        BottleInfo bottleInfo = new BottleInfo("Coca Cola", 2.50, 12);
+        //Assert
+        assertEquals("Coca Cola", bottleInfo.getName());
+        assertEquals(2.50, bottleInfo.getPrice(), 0.01);
+        assertEquals(12, bottleInfo.getAmount());
     }
 
     @Test
-    public void testGetPrice() {
-        BottleInfo bottle = new BottleInfo("Coca-Cola", 1.50, 24);
-        assertEquals(1.50, bottle.getPrice(), 0.001);
-    }
-
-    @Test
-    public void testGetAmount() {
-        BottleInfo bottle = new BottleInfo("Coca-Cola", 1.50, 24);
-        assertEquals(24, bottle.getAmount());
+    public void testSetName() {
+        //Arrange
+        BottleInfo bottleInfo = new BottleInfo("Coca Cola", 2.50, 12);
+        //Act
+        bottleInfo.setName("Pepsi");
+        //Assert
+        assertEquals("Pepsi", bottleInfo.getName());
     }
 
     @Test
     public void testSetPrice() {
-        BottleInfo bottle = new BottleInfo("Coca-Cola", 1.50, 24);
-        bottle.setPrice(2.00);
-        assertEquals(2.00, bottle.getPrice(), 0.001);
+        //Arrange
+        BottleInfo bottleInfo = new BottleInfo("Coca Cola", 2.50, 12);
+        //Act
+        bottleInfo.setPrice(2.75);
+        //Assert
+        assertEquals(2.75, bottleInfo.getPrice(), 0.01);
     }
 
     @Test
     public void testSetAmount() {
-        BottleInfo bottle = new BottleInfo("Coca-Cola", 1.50, 24);
-        bottle.setAmount(36);
-        assertEquals(36, bottle.getAmount());
+        //Arrange
+        BottleInfo bottleInfo = new BottleInfo("Coca Cola", 2.50, 12);
+        //Act
+        bottleInfo.setAmount(24);
+        //Assert
+        assertEquals(24, bottleInfo.getAmount());
     }
 
+    @Test
+    public void testToString() {
+        //Arrange
+        BottleInfo bottleInfo = new BottleInfo("Coca Cola", 2.50, 12);
+        //Act
+        String expected = "name= 'Coca Cola', price= 2.5, amount= 12";
+        //Assert
+        assertEquals(expected, bottleInfo.toString());
+    }
 }
